@@ -37,4 +37,11 @@ window.calculateInvestmentReturn = function() {
     let time = parseFloat(document.getElementById('time-investment').value);
     let compounds = parseFloat(document.getElementById('compounds-investment').value);
 
-    
+    if (isNaN(principal) || isNaN(rate) || isNaN(time) || isNaN(compounds)) {
+        alert('Please enter valid numbers');
+        return;
+    }
+
+    let investmentReturn = calculateInvestmentReturn(principal, rate, time, compounds);
+    document.getElementById('investment-result').innerText = `Future Value: ${investmentReturn.toFixed(2)}`;
+};
